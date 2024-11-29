@@ -1,0 +1,70 @@
+{
+    "categories":[
+        {
+            "id":null,
+            "title":"Все"
+        },
+        {
+            "id":"2",
+            "title":"Мясные"
+        },
+        {
+            "id":"3",
+            "title":"Вегетарианская"
+        },
+        {
+            "id":"4",
+            "title":"Гриль"
+        },
+        {
+            "id":"5",
+            "title":"Острые"
+        },
+        {
+            "id":"6",
+            "title":"Закрытые"
+        }
+    ],
+    "products":[
+        {
+            "id":"1",
+            "categoryId":"2",
+            "imgUrl":"https://img.povar.ru/main-micro/6f/6f/d6/4a/picca_quotchizburgerquot-688938.jpg",
+            "name":"Чизбургер-пицца",
+            "type":["тонкое", "традиционное"],
+            "size":["26 см.", "30 см.", "40 см."],
+            "price":395,
+            "orderCount":10
+        },
+        {
+            "id":"2",
+            "categoryId":"3",
+            "imgUrl":"https://passionecoltelli.com/wp-content/uploads/2015/12/Tagliere-per-pizza-9.jpg",
+            "name":"Сырная",
+            "type":["тонкое", "традиционное"],
+            "size":["26 см."],
+            "price":450,
+            "orderCount":10
+        },
+        {
+            "id":"3",
+            "categoryId":"4",
+            "imgUrl":"https://irecommend.ru/sites/default/files/imagecache/copyright1/user-images/1652821/S2PjtVcKu2mEY4oJrIH0wQ.jpg",
+            "name":"Креветки по-азиатски",
+            "type":["тонкое", "традиционное"],
+            "size":["30 см."],
+            "price":395,
+            "orderCount":10
+        },
+        {
+            "id":"4",
+            "categoryId":"5",
+            "imgUrl":"",
+            "name":"https://foodsonic.ru/upload/resize_cache/iblock/0d5/500_500_140cd750bba9870f18aada2478b24840a/0d53b6df8171c31d6733b1d466bc9bd7.png",
+            "type":["тонкое", "традиционное"],
+            "size":["26 см.", "30 см.", "40 см."],
+            "price":395,
+            "orderCount":10
+        }
+    ]
+}
