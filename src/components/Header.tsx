@@ -1,15 +1,17 @@
-import React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import Logo from '../assets/images/Logo.svg'
 import { BasketIcon } from '../assets/images/logo'
+import { useSelector } from "react-redux"
+import { ProductType } from "../service/Products"
 
-interface HeaderType {
-    basketCount:number
-    totalPrife:number
-}
-
-const Header:React.FC<HeaderType> = ({basketCount, totalPrife}) => {
+const Header = () => {
     const navigate = useNavigate()
+    const orderedProducts = useSelector((state:{orderList:ProductType[]}) => state.orderList)
+
+    const totalPrice = orderedProducts.reduce((val:number, item:ProductType) => {
+        val+=(item.price * item.orderCount)
+        return val
+    }, 0)
 
   return (
     <div className="flex items-center pb-[40px] border-b-[2px] border-[#b9b9b9] justify-between">
@@ -21,11 +23,11 @@ const Header:React.FC<HeaderType> = ({basketCount, totalPrife}) => {
             </div>
         </Link>
         <button onClick={() => navigate("/basket")} className="w-[150px] text-white rounded-[30px] flex items-center justify-center gap-[13px] cursor-pointer py-[12px] bg-[#FE5F1E]">
-            <strong className="text-[16px]">{totalPrife}</strong>
+            <strong className="text-[16px]">{totalPrice}₽</strong>
             <span className="inline-block w-[2px] h-[25px] bg-[#FFFFFF40]"></span>
             <div className="flex items-center space-x-[8px]">
                 <BasketIcon/>
-                <span>{basketCount}</span>
+                <span>{orderedProducts.length > 0 && orderedProducts.length}</span>
             </div>
         </button>
     </div>

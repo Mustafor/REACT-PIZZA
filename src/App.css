@@ -7,11 +7,16 @@ body{
     background-color: #ffdf8c;
 }
 
-.ant-segmented-group{
-    width: 100% !important;
-}
-
 .imgUrl{
     width: 100% !important;
     height: 100% !important;
 }
+
+.ant-segmented, .ant-segmented-group{
+    width: 100% !important;
+}
+
+.ant-segmented-item{
+    width: 50% !important;
+}
+  

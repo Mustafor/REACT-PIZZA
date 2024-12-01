@@ -1,8 +1,9 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Context } from "../Context/Context"
 import { useQuery } from "@tanstack/react-query"
 import { useAxios } from "../hook/useAxios"
 import ProductCard from "../components/ProductCard"
+import { useSelector } from "react-redux"
 
 export interface ProductType {
     id: string
@@ -17,18 +18,24 @@ export interface ProductType {
 
 function Products() {
     const { categoryId } = useContext(Context)
+    const orderList = useSelector((state:{orderList:ProductType[]}) => state.orderList)
 
     const { data: products = [] } = useQuery({
         queryKey: ["products", categoryId],
         queryFn: () => useAxios().get(`/products`, { params : { categoryId } }).then((res) => res.data)
     })
 
+    const [getAllProducts, setGetAllProducts] = useState<ProductType[]>(products)
+    useEffect(() => {
+        setGetAllProducts(products)
+    }, [products])
+
   return (
     <>
         <h1 className="mt-[32px] mb-[35px] font-bold text-black text-[32px]">Все пиццы</h1>
     <div className="flex justify-between gap-[35px] flex-wrap">
-        {products.map((item: ProductType) => (
-            <ProductCard key={item.id} item={item}/>
+        {getAllProducts.map((item: ProductType) => (
+            <ProductCard key={item.id} item={item} getAllProducts={getAllProducts} setGetAllProducts={setGetAllProducts}/>
         ))}
     </div>
     </>
