@@ -1,15 +1,16 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react"
 
 interface ButtonType {
-  orderClass?: string;
-  title: string;
-  leftIcon?: ReactNode;
-  orderCount?: number;
+  orderClass?: string
+  title: string
+  leftIcon?: ReactNode
+  orderCount?: number
+  onClick?:React.MouseEventHandler<HTMLButtonElement>
 }
 
-const OrderButton: React.FC<ButtonType> = ({ orderClass, title, leftIcon, orderCount }) => {
+const OrderButton: React.FC<ButtonType> = ({ orderClass, title, leftIcon, orderCount, onClick }) => {
   return (
-    <button className={`${orderClass} group hover:bg-[#EB5A1E] hover:text-white duration-300 w-[150px] py-[10px] flex items-center justify-center gap-[7px] rounded-[30px] border-[2px] font-semibold text-[16px] text-[#EB5A1E] border-[#EB5A1E]`}>
+    <button onClick={onClick} className={`${orderClass} group hover:bg-[#EB5A1E] hover:text-white duration-300 w-[150px] py-[10px] flex items-center justify-center gap-[7px] rounded-[30px] border-[2px] font-semibold text-[16px] text-[#EB5A1E] border-[#EB5A1E]`}>
       {leftIcon}
       <span className='font-bold text-[#EB5A1E] group-hover:text-white duration-300  text-[16px]'>{title}</span>
       {orderCount && orderCount > 0 ? (
@@ -18,7 +19,7 @@ const OrderButton: React.FC<ButtonType> = ({ orderClass, title, leftIcon, orderC
         </span>
       ) : null}
     </button>
-  );
-};
+  )
+}
 
-export default OrderButton;
+export default OrderButton

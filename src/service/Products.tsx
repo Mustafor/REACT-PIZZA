@@ -30,6 +30,14 @@ function Products() {
         setGetAllProducts(products)
     }, [products])
 
+    useEffect(() => {
+        const updateProducts = getAllProducts.map((products) => {
+            const orderProduct  = orderList.find((item) => item.id == products.id)
+            return { ...products, orderCount: orderProduct ? orderProduct.orderCount : 0 }
+        })
+        setGetAllProducts(updateProducts)
+    }, [])
+
   return (
     <>
         <h1 className="mt-[32px] mb-[35px] font-bold text-black text-[32px]">Все пиццы</h1>

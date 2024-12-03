@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useAxios } from '../hook/useAxios'
 import { ArrowIcon } from '../assets/images/logo'
 
-interface CategoryType {
+export interface CategoryType {
     id: string
     title: string
 }
